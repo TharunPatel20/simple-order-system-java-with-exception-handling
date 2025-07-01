@@ -129,7 +129,7 @@ Collect user input later (via `Scanner`), handle potential input errors:
 Order placed successfully!
 Orders for Tharun:
 Order ID: 1
-    Product ID: 1, Name: Laptop, Price: 50000.0
-    Product ID: 2, Name: Phone, Price: 20000.0
-    Total Amount: 70000.0
+    Product ID: 1, Name: Apple, Price: 900.0
+    Product ID: 2, Name: Pen, Price: 100.0
+    Total Amount: 1000.0
 ```
