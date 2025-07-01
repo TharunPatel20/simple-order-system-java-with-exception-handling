@@ -8,6 +8,12 @@ public class Product {
     public Product() {}
 
     public Product(int productId, String name, double price) {
+        if (name == null || name.trim().isEmpty()) {
+            throw new IllegalArgumentException("Product name cannot be null or empty.");
+        }
+        if (price < 0) {
+            throw new IllegalArgumentException("Product price cannot be negative.");
+        }
         this.productId = productId;
         this.name = name;
         this.price = price;
@@ -18,8 +24,20 @@ public class Product {
     public double getPrice() { return price; }
 
     public void setProductId(int productId) { this.productId = productId; }
-    public void setName(String name) { this.name = name; }
-    public void setPrice(double price) { this.price = price; }
+
+    public void setName(String name) {
+        if (name == null || name.trim().isEmpty()) {
+            throw new IllegalArgumentException("Product name cannot be null or empty.");
+        }
+        this.name = name;
+    }
+
+    public void setPrice(double price) {
+        if (price < 0) {
+            throw new IllegalArgumentException("Product price cannot be negative.");
+        }
+        this.price = price;
+    }
 
     public void displayProductDetails() {
         System.out.println("    Product ID: " + productId +

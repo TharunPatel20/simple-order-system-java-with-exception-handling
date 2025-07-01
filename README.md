@@ -127,7 +127,7 @@ Collect user input later (via `Scanner`), handle potential input errors:
 
 ```
 Order placed successfully!
-Orders for Ashish:
+Orders for Tharun:
 Order ID: 1
     Product ID: 1, Name: Laptop, Price: 50000.0
     Product ID: 2, Name: Phone, Price: 20000.0

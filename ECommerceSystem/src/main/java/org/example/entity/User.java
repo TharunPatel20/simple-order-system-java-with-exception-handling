@@ -10,6 +10,13 @@ public class User {
     public User() {}
 
     public User(int userId, String name, int maxOrders) {
+        if (name == null || name.trim().isEmpty()) {
+            throw new IllegalArgumentException("User name cannot be null or empty.");
+        }
+        if (maxOrders <= 0) {
+            throw new IllegalArgumentException("User must be able to place at least one order.");
+        }
+
         this.userId = userId;
         this.name = name;
         this.maxOrders = maxOrders;
@@ -29,15 +36,18 @@ public class User {
     public void setOrders(Order[] orders) { this.orders = orders; }
 
     public void placeOrder(Product[] products) {
-        if (orderCount <= maxOrders) {
-            this.orders[orderCount] = new Order(orderCount, products);
-            System.out.println("\nOrder placed successfully!");
-            System.out.println("Orders for " + this.getName() + ":");
-            orders[orderCount].displayOrderDetails();
-            orderCount++;
-        } else {
-            System.out.println("Order limit reached.");
+        if (products == null || products.length == 0) {
+            throw new IllegalArgumentException("Cannot place an order with no products.");
         }
+        if (orderCount > maxOrders) {
+            throw new IllegalStateException("Order limit reached.");
+        }
+
+        this.orders[orderCount] = new Order(orderCount, products);
+        System.out.println("\nOrder placed successfully!");
+        System.out.println("Orders for " + this.getName() + ":");
+        orders[orderCount].displayOrderDetails();
+        orderCount++;
     }
 
     public void viewOrders() {
